@@ -1,0 +1,89 @@
+REGRESSION DIAGNOSTICS REPORT
+
+TARGET DISTRIBUTION
+count    250000.000000
+mean        254.586854
+std         141.349921
+min          10.000000
+25%         132.550000
+50%         253.870000
+75%         376.880000
+max         500.000000
+
+NUMERICAL CORRELATIONS
+Price_in_Lakhs           1.000000
+Scenario_Future_Price    1.000000
+Good_Investment         -0.657616
+Price_per_SqFt           0.555781
+Security                 0.003808
+Nearby_Hospitals        -0.002769
+Year_Built               0.002714
+Age_of_Property         -0.002714
+Size_in_SqFt            -0.002529
+Floor_Data_Invalid      -0.002467
+Amenity_Gym              0.001945
+Amenity_Playground      -0.001817
+Amenity_Pool             0.001753
+Floor_No                -0.001719
+ID                      -0.001636
+Total_Floors             0.001283
+Parking_Space            0.001118
+Amenity_Count            0.001029
+BHK                     -0.000980
+Amenity_Clubhouse        0.000607
+Amenity_Garden           0.000482
+Floor_Ratio              0.000237
+Nearby_Schools           0.000155
+
+CITY PRICE STATISTICS
+                count        mean   median         std
+City                                                  
+Bangalore        4144  258.456639  258.360  141.256308
+Surat            6167  258.080467  258.230  142.048655
+Kochi            6305  257.415221  258.750  141.475565
+Gaya             6170  257.053391  257.200  141.896207
+Mangalore        4063  256.920925  256.520  142.941421
+Dehradun         6234  256.890115  257.035  141.370593
+Mysore           4217  256.848172  259.520  140.121570
+Chennai          6168  256.830172  256.915  140.582869
+Hyderabad        6273  256.594051  256.780  139.949369
+Coimbatore       6461  256.504745  255.680  141.123100
+Bhopal           6284  256.498896  258.230  141.162300
+Pune             4224  256.495661  258.930  140.831862
+Noida            6271  256.287206  256.520  141.847292
+Lucknow          6237  256.212431  258.040  142.215189
+Vishakhapatnam   6118  255.772442  255.740  142.789241
+Nagpur           4160  255.532012  255.255  141.085893
+Indore           6167  255.413825  252.300  141.637188
+Jaipur           6231  255.246241  251.630  141.551291
+Bhubaneswar      6323  254.902173  252.960  141.757167
+Faridabad        6169  254.862393  255.430  140.391374
+Vijayawada       6344  254.643766  255.585  140.704965
+Ranchi           6145  254.624529  251.580  142.368038
+Warangal         6266  254.475113  253.215  141.704120
+Durgapur         6387  254.100152  251.510  140.082192
+Gurgaon          6145  254.027549  254.380  141.382891
+Jodhpur          6171  253.947906  252.480  142.023602
+Kolkata          6235  253.914897  250.330  140.158985
+Ahmedabad        6411  253.586827  255.560  141.772616
+Raipur           6193  253.482416  253.680  142.756071
+Dwarka           6246  253.454299  250.745  141.246500
+Ludhiana         6295  253.159636  249.420  141.292942
+Guwahati         6092  252.992710  251.665  141.269320
+Patna            6199  252.794673  247.970  140.626258
+Jamshedpur       6335  252.626185  251.480  142.096173
+Silchar          6404  252.576160  251.435  142.619461
+Haridwar         6267  252.476004  251.400  141.205911
+Amritsar         6221  252.429802  251.710  141.215183
+Mumbai           4149  252.056633  248.990  140.407212
+Bilaspur         6263  251.879267  251.350  141.520185
+New Delhi        6306  251.614296  249.675  140.779692
+Trivandrum       6182  251.258801  249.060  139.957440
+Cuttack          6358  250.786672  248.205  140.913875
+
+PROPERTY TYPE STATISTICS
+                   count        mean   median         std
+Property_Type                                            
+Apartment          82956  254.622116  254.020  141.707299
+Independent House  83300  255.374150  255.040  141.195043
+Villa              83744  253.768802  252.535  141.146420

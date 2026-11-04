@@ -1,0 +1,17 @@
+{
+  "project": "Real Estate Investment Advisor",
+  "classification_model": "XGBoost Classifier",
+  "regression_model": "XGBoost Regressor",
+  "classification_target": "Good_Investment",
+  "regression_target": "Target_Property_Price",
+  "dataset_rows": 250000,
+  "dataset_columns": 34,
+  "random_state": 42,
+  "test_size": 0.2,
+  "models_directory": "models",
+  "mlflow_experiment": "Real_Estate_Investment_Advisor",
+  "mlflow_tracking_uri": "sqlite:///mlflow.db",
+  "classification_target_note": "Below-city-median price proxy, not verified investment profitability",
+  "regression_target_note": "Current property price, not future property value",
+  "future_valuation_note": "Illustrative appreciation scenario, not an ML prediction"
+}

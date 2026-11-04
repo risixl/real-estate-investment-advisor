@@ -1,0 +1,299 @@
+======================================================================
+REAL ESTATE DATASET PROFILE REPORT
+======================================================================
+
+Generated: 2026-11-02 17:56:45.025614
+Dataset: india_housing_prices.csv
+Dataset Shape: (250000, 23)
+
+
+======================================================================
+DATASET DIMENSIONS
+======================================================================
+Rows: 250,000
+Columns: 23
+
+======================================================================
+COLUMN NAMES
+======================================================================
+- ID
+- State
+- City
+- Locality
+- Property_Type
+- BHK
+- Size_in_SqFt
+- Price_in_Lakhs
+- Price_per_SqFt
+- Year_Built
+- Furnished_Status
+- Floor_No
+- Total_Floors
+- Age_of_Property
+- Nearby_Schools
+- Nearby_Hospitals
+- Public_Transport_Accessibility
+- Parking_Space
+- Security
+- Amenities
+- Facing
+- Owner_Type
+- Availability_Status
+
+======================================================================
+DATA TYPES
+======================================================================
+ID                                  int64
+State                                 str
+City                                  str
+Locality                              str
+Property_Type                         str
+BHK                                 int64
+Size_in_SqFt                        int64
+Price_in_Lakhs                    float64
+Price_per_SqFt                    float64
+Year_Built                          int64
+Furnished_Status                      str
+Floor_No                            int64
+Total_Floors                        int64
+Age_of_Property                     int64
+Nearby_Schools                      int64
+Nearby_Hospitals                    int64
+Public_Transport_Accessibility        str
+Parking_Space                         str
+Security                              str
+Amenities                             str
+Facing                                str
+Owner_Type                            str
+Availability_Status                   str
+
+======================================================================
+MISSING VALUES
+======================================================================
+                                Missing_Count  Missing_Percentage
+ID                                          0                 0.0
+State                                       0                 0.0
+City                                        0                 0.0
+Locality                                    0                 0.0
+Property_Type                               0                 0.0
+BHK                                         0                 0.0
+Size_in_SqFt                                0                 0.0
+Price_in_Lakhs                              0                 0.0
+Price_per_SqFt                              0                 0.0
+Year_Built                                  0                 0.0
+Furnished_Status                            0                 0.0
+Floor_No                                    0                 0.0
+Total_Floors                                0                 0.0
+Age_of_Property                             0                 0.0
+Nearby_Schools                              0                 0.0
+Nearby_Hospitals                            0                 0.0
+Public_Transport_Accessibility              0                 0.0
+Parking_Space                               0                 0.0
+Security                                    0                 0.0
+Amenities                                   0                 0.0
+Facing                                      0                 0.0
+Owner_Type                                  0                 0.0
+Availability_Status                         0                 0.0
+
+======================================================================
+DUPLICATE RECORDS
+======================================================================
+Complete duplicate rows: 0
+Duplicate property IDs: 0
+
+======================================================================
+NUMERICAL STATISTICS
+======================================================================
+                     count           mean           std     min       25%        50%        75%        max
+ID                250000.0  125000.500000  72168.927986     1.0  62500.75  125000.50  187500.25  250000.00
+BHK               250000.0       2.999396      1.415521     1.0      2.00       3.00       4.00       5.00
+Size_in_SqFt      250000.0    2749.813216   1300.606954   500.0   1623.00    2747.00    3874.00    5000.00
+Price_in_Lakhs    250000.0     254.586854    141.349921    10.0    132.55     253.87     376.88     500.00
+Price_per_SqFt    250000.0       0.130597      0.130747     0.0      0.05       0.09       0.16       0.99
+Year_Built        250000.0    2006.520012      9.808575  1990.0   1998.00    2007.00    2015.00    2023.00
+Floor_No          250000.0      14.966800      8.948047     0.0      7.00      15.00      23.00      30.00
+Total_Floors      250000.0      15.503004      8.671618     1.0      8.00      15.00      23.00      30.00
+Age_of_Property   250000.0      18.479988      9.808575     2.0     10.00      18.00      27.00      35.00
+Nearby_Schools    250000.0       5.499860      2.878639     1.0      3.00       5.00       8.00      10.00
+Nearby_Hospitals  250000.0       5.498016      2.871860     1.0      3.00       5.00       8.00      10.00
+
+======================================================================
+CATEGORICAL STATISTICS
+======================================================================
+                                 count unique                 top    freq
+State                           250000     20              Odisha   12681
+City                            250000     42          Coimbatore    6461
+Locality                        250000    500        Locality_296     567
+Property_Type                   250000      3               Villa   83744
+Furnished_Status                250000      3         Unfurnished   83408
+Public_Transport_Accessibility  250000      3                High   83705
+Parking_Space                   250000      2                  No  125456
+Security                        250000      2                 Yes  125233
+Amenities                       250000    325                Pool   10218
+Facing                          250000      4                West   62757
+Owner_Type                      250000      3              Broker   83479
+Availability_Status             250000      2  Under_Construction  125035
+
+======================================================================
+UNIQUE CATEGORICAL VALUES
+======================================================================
+
+State:
+State
+Odisha            12681
+Tamil Nadu        12629
+West Bengal       12622
+Gujarat           12578
+Delhi             12552
+Telangana         12539
+Maharashtra       12533
+Punjab            12516
+Uttar Pradesh     12508
+Uttarakhand       12501
+Assam             12496
+Kerala            12487
+Jharkhand         12480
+Andhra Pradesh    12462
+Chhattisgarh      12456
+
+City:
+City
+Coimbatore     6461
+Ahmedabad      6411
+Silchar        6404
+Durgapur       6387
+Cuttack        6358
+Vijayawada     6344
+Jamshedpur     6335
+Bhubaneswar    6323
+New Delhi      6306
+Kochi          6305
+Ludhiana       6295
+Bhopal         6284
+Hyderabad      6273
+Noida          6271
+Haridwar       6267
+
+Locality:
+Locality
+Locality_296    567
+Locality_316    562
+Locality_297    561
+Locality_313    560
+Locality_321    558
+Locality_405    555
+Locality_11     555
+Locality_496    551
+Locality_224    548
+Locality_193    548
+Locality_238    546
+Locality_396    543
+Locality_218    542
+Locality_105    542
+Locality_80     540
+
+Property_Type:
+Property_Type
+Villa                83744
+Independent House    83300
+Apartment            82956
+
+Furnished_Status:
+Furnished_Status
+Unfurnished       83408
+Semi-furnished    83374
+Furnished         83218
+
+Public_Transport_Accessibility:
+Public_Transport_Accessibility
+High      83705
+Low       83287
+Medium    83008
+
+Parking_Space:
+Parking_Space
+No     125456
+Yes    124544
+
+Security:
+Security
+Yes    125233
+No     124767
+
+Amenities:
+Amenities
+Pool                     10218
+Clubhouse                10010
+Garden                   10006
+Gym                       9938
+Playground                9934
+Pool, Playground          2545
+Gym, Pool                 2534
+Garden, Clubhouse         2524
+Gym, Playground           2524
+Playground, Gym           2519
+Clubhouse, Playground     2516
+Playground, Clubhouse     2506
+Garden, Gym               2504
+Gym, Garden               2500
+Garden, Playground        2498
+
+Facing:
+Facing
+West     62757
+North    62637
+South    62337
+East     62269
+
+Owner_Type:
+Owner_Type
+Broker     83479
+Owner      83268
+Builder    83253
+
+Availability_Status:
+Availability_Status
+Under_Construction    125035
+Ready_to_Move         124965
+
+======================================================================
+NUMERICAL ANOMALIES
+======================================================================
+Infinite values: 0
+
+======================================================================
+PRICE PER SQFT VALIDATION
+======================================================================
+Valid records: 250000
+Maximum difference: 0.0050000000000000044
+Mean difference: 0.002510614249884634
+Mismatches: 249516
+Average price per sqft (INR): 13059.68
+
+======================================================================
+YEAR BUILT VALIDATION
+======================================================================
+Reference year: 2026
+Minimum year: 1990
+Maximum year: 2023
+Suspicious construction years: 0
+
+======================================================================
+TARGET VARIABLE AVAILABILITY
+======================================================================
+Future_Price: Absent
+Future_Price_5_Years: Absent
+Good_Investment: Absent
+Investment_Return: Absent
+Appreciation_Rate: Absent
+
+======================================================================
+PROPERTY AGE VALIDATION
+======================================================================
+Reference year: 2026
+Age mismatches: 250000
+Expected average property age: 19.48
+
+======================================================================
+END OF DATASET PROFILE REPORT
+======================================================================

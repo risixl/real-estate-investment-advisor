@@ -13,38 +13,28 @@ def preprocess_data():
 
     df = pd.read_csv(RAW_PATH, low_memory=False)
 
-    print("Original shape:", df.shape)
+    original_rows = len(df)
+
+    print("Original records:", original_rows)
 
     # Remove exact duplicate records
     df = df.drop_duplicates().copy()
 
-    # Validate unique property IDs
-    df = df.drop_duplicates(subset=["ID"], keep="first")
+    # Validate unique IDs
+    df = df.drop_duplicates(subset="ID", keep="first")
 
-    # Convert numerical columns safely
-    numeric_columns = [
-        "BHK", "Size_in_SqFt", "Price_in_Lakhs",
-        "Price_per_SqFt", "Year_Built",
-        "Floor_No", "Total_Floors",
-        "Nearby_Schools", "Nearby_Hospitals"
-    ]
-
-    for col in numeric_columns:
-        df[col] = pd.to_numeric(df[col], errors="coerce")
-
-    # Remove invalid essential records
-    df = df.dropna(
-        subset=["Price_in_Lakhs", "Size_in_SqFt", "BHK"]
-    )
-
-    df = df[
+    # Remove only records with invalid essential values
+    valid = (
         (df["Price_in_Lakhs"] > 0)
         & (df["Size_in_SqFt"] > 0)
         & (df["BHK"] > 0)
+        & (df["Year_Built"] >= 1800)
         & (df["Year_Built"] <= 2026)
-    ].copy()
+    )
 
-    # Recalculate age consistently
+    df = df.loc[valid].copy()
+
+    # Recalculate property age
     df["Age_of_Property"] = 2026 - df["Year_Built"]
 
     # Recalculate price per sqft in lakhs
@@ -52,26 +42,35 @@ def preprocess_data():
         df["Price_in_Lakhs"] / df["Size_in_SqFt"]
     )
 
-    # Engineer floor ratio
-    df["Floor_Ratio"] = (
-        df["Floor_No"] / df["Total_Floors"].replace(0, np.nan)
+    # Flag floor inconsistencies rather than deleting rows
+    df["Floor_Data_Invalid"] = (
+        (df["Floor_No"] < 0)
+        | (df["Total_Floors"] <= 0)
+        | (df["Floor_No"] > df["Total_Floors"])
+    ).astype(int)
+
+    df["Floor_Ratio"] = np.where(
+        df["Floor_Data_Invalid"] == 0,
+        df["Floor_No"] / df["Total_Floors"],
+        np.nan
     )
 
-    # Encode binary categorical features
-    binary_mapping = {
-        "Parking_Space": {"Yes": 1, "No": 0},
-        "Security": {"Yes": 1, "No": 0}
-    }
+    # Binary encoding
+    for col in ["Parking_Space", "Security"]:
+        df[col] = df[col].map({
+            "Yes": 1,
+            "No": 0
+        })
 
-    for col, mapping in binary_mapping.items():
-        df[col] = df[col].map(mapping)
-
-    # Extract amenities into individual indicators
+    # Amenities feature engineering
     amenities = df["Amenities"].fillna("").astype(str)
 
-    for amenity in ["Gym", "Pool", "Garden",
-                    "Clubhouse", "Playground"]:
+    amenity_names = [
+        "Gym", "Pool", "Garden",
+        "Clubhouse", "Playground"
+    ]
 
+    for amenity in amenity_names:
         df[f"Amenity_{amenity}"] = amenities.apply(
             lambda value: int(
                 amenity.lower() in [
@@ -82,27 +81,25 @@ def preprocess_data():
         )
 
     df["Amenity_Count"] = df[
-        [f"Amenity_{a}" for a in [
-            "Gym", "Pool", "Garden", "Clubhouse", "Playground"
-        ]]
+        [f"Amenity_{a}" for a in amenity_names]
     ].sum(axis=1)
 
-    # Remove invalid floor relationships
-    df = df[
-        (df["Floor_No"] >= 0)
-        & (df["Total_Floors"] > 0)
-        & (df["Floor_No"] <= df["Total_Floors"])
-    ].copy()
-
-    # Save cleaned dataset
-    OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
+    OUTPUT_PATH.parent.mkdir(
+        parents=True,
+        exist_ok=True
+    )
 
     df.to_csv(OUTPUT_PATH, index=False)
 
-    print("\nPreprocessing completed.")
-    print("Final shape:", df.shape)
+    print("\nPREPROCESSING SUMMARY")
+    print("Original records:", original_rows)
+    print("Final records:", len(df))
+    print("Records removed:", original_rows - len(df))
+    print("Invalid floor records flagged:",
+          df["Floor_Data_Invalid"].sum())
     print("Missing values:", df.isnull().sum().sum())
-    print("Saved to:", OUTPUT_PATH)
+    print("Final shape:", df.shape)
+    print("Saved:", OUTPUT_PATH)
 
     return df
 
